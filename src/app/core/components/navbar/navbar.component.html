@@ -1,0 +1,74 @@
+<nav class="fixed border-b border-solid border-prime-gray-200 w-full py-3 bg-inherit ">
+  <div class="container-xl mx-auto ">
+    <div class="w-full flex flex-col lg:flex-row">
+      <div class=" flex justify-between lg:flex-row">
+        <a href="https://pagedone.io/" class="flex items-center">
+          <svg width="164" height="33" viewBox="0 0 164 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M24.5473 11.8941C25.1905 12.5063 25.2068 13.5149 24.5837 14.1468L18.7585 20.054C18.1354 20.686 17.1087 20.702 16.4654 20.0898C15.8222 19.4776 15.8059 18.469 16.429 17.8371L22.2542 11.9299C22.8773 11.2979 23.904 11.2819 24.5473 11.8941Z"
+              fill="url(#paint0_linear_6727_44729-1)"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0 4.54673C0 2.03564 2.07211 0 4.62819 0H21.5399V0.00124069C28.9908 0.0998525 35 6.06429 35 13.4075C35 20.8123 28.8897 26.8151 21.3523 26.8151C18.6648 26.8151 16.1587 26.052 14.0463 24.7342L6.58815 31.9057C4.13431 34.2652 0 32.5573 0 29.1841V4.54673ZM11.5194 22.7055C9.15709 20.295 7.70452 17.0179 7.70452 13.4075C7.70452 12.5277 8.43056 11.8144 9.32619 11.8144C10.2218 11.8144 10.9479 12.5277 10.9479 13.4075C10.9479 19.0526 15.6061 23.6288 21.3523 23.6288C27.0985 23.6288 31.7567 19.0526 31.7567 13.4075C31.7567 7.76248 27.0985 3.18626 21.3523 3.18626H4.62819C3.86336 3.18626 3.24334 3.79536 3.24334 4.54673V29.1841C3.24334 29.7351 3.91866 30.014 4.31948 29.6286L11.5194 22.7055Z"
+                  fill="url(#paint1_linear_6727_44729-1)"></path>
+            <defs>
+              <linearGradient id="paint0_linear_6727_44729-1" x1="31.5325" y1="2.21268" x2="1.00231" y2="33.2898"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#9038FF"></stop>
+                <stop offset="0.993738" stop-color="#5551FF"></stop>
+              </linearGradient>
+              <linearGradient id="paint1_linear_6727_44729-1" x1="31.5325" y1="2.21268" x2="1.00231" y2="33.2898"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#9038FF"></stop>
+                <stop offset="0.993738" stop-color="#5551FF"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+        </a>
+        <button data-collapse-toggle="navbar-default-with-dropdown" type="button"
+                class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="hidden w-full lg:flex lg:pl-11">
+        <ul class="flex lg:items-center flex-col mt-4 lg:mt-0 lg:ml-auto lg:flex-row gap-4 lg:gap-0">
+          <li>
+            <a href="javascript:;"
+               class="flex items-center justify-between text-gray-500 text-sm lg:text-base font-medium transition-all duration-500 mb-2 md:mb-0 md:mr-5 ">خانه</a>
+          </li>
+
+          <li class="relative inline-block">
+            <!-- Button with Arrow -->
+            <button
+              (click)="toggleDropdown()"
+              class="py-2 rounded-md flex items-center text-sm lg:text-base font-medium text-gray-500">
+              مدیریت
+              <svg
+                class="w-4 h-4 ml-2 transition-transform md:mr-1"
+                [ngClass]="{'rotate-180': isDropdownOpen}"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div
+              *ngIf="isDropdownOpen"
+              class="dropdown-menu rounded-xl lg:!shadow-lg bg-white relative lg:!absolute top-full w-max mt-3 open">
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium">تماس با ما</a>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium">درباره ما</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
