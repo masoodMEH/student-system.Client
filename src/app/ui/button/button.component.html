@@ -1,0 +1,18 @@
+<button [ngClass]="buttonClasses" [disabled]="loading">
+  <span class="flex items-center justify-center gap-2">
+    <!-- نمایش لودینگ اگر فعال باشد -->
+    <ng-container *ngIf="loading; else showIcon">
+      <svg class="animate-spin w-5 h-5 text-white" fill="none" viewBox="0 0 24 24">
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 11-8 8z">
+        </path>
+      </svg>
+    </ng-container>
+
+    <!-- نمایش آیکون معمولی اگر لودینگ فعال نباشد -->
+    <ng-template #showIcon>
+      <ng-icon *ngIf="icon" [name]="icon" [ngClass]="iconClasses"></ng-icon>
+    </ng-template>
+
+    <span class="leading-5 flex items-center">{{ text }}</span>
+  </span>
+</button>

@@ -1,0 +1,59 @@
+<nav class="bg-gray-800">
+  <div class="container mx-auto px-3">
+    <div class="relative flex items-center justify-between h-16">
+      <!-- Mobile Menu Button -->
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <button type="button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+          (click)="toggleMobileMenu()">
+          <span class="sr-only">Open main menu</span>
+          <svg *ngIf="!isMobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg *ngIf="isMobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="hidden sm:flex space-x-4">
+          <div *ngFor="let item of menuItems" class="relative dropdown-container">
+
+            <!-- لینک معمولی و Dropdown -->
+            <button *ngIf="!item.children" (click)="setActive(item)" [routerLink]="item.path"
+              [ngClass]="{'bg-gray-700 text-white': activeItem === item}"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">
+              {{ item.label }}
+            </button>
+
+            <!-- دکمه Dropdown -->
+            <button *ngIf="item.children" (click)="toggleDropdown(item); $event.stopPropagation()"
+              [ngClass]="{'bg-gray-700 text-white': activeItem === item}"
+              class="flex items-center gap-2 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">
+              {{ item.label }}
+              <svg class="w-4 h-4 transform transition-transform duration-300"
+                [ngClass]="{'rotate-180': openDropdown === item.label}" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div *ngIf="openDropdown === item.label"
+              class="absolute bg-gray-800 text-white rounded-sm shadow-lg mt-1 right-0 w-48 opacity-0 scale-95 transform transition-all duration-300"
+              [ngClass]="{'opacity-100 scale-100': openDropdown === item.label}">
+              <a *ngFor="let child of item.children" [routerLink]="child.path"
+                class="block px-4 py-2 text-sm hover:bg-gray-700 rounded-sm">
+                {{ child.label }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
