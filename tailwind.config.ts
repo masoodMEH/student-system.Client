@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss';
 import tailwindFormPlugin from "@tailwindcss/forms";
+import type { Config } from 'tailwindcss';
 
 export const tailwindColors: { [key: string]: string } = {
   current: "currentColor",

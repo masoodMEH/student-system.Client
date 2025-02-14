@@ -13,7 +13,7 @@ export class ButtonComponent {
   @Input() text: string = 'Button';
   @Input() textSize: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' = 'base';
   @Input() icon: string = '';
-  @Input() iconSize: 'small' | 'medium' | 'large' = 'medium';
+  @Input() iconSize: 'small' | 'medium' | 'large' | 'xlarge' = 'medium';
   @Input() iconColor: string = 'text-white';
   @Input() size: 'tiny' | 'small' | 'medium' | 'large' | 'huge' = 'medium';
   @Input() rounded: boolean = true;
@@ -64,7 +64,8 @@ export class ButtonComponent {
     const iconSizeClasses = {
       small: 'w-4 h-4',
       medium: 'w-5 h-5',
-      large: 'w-6 h-6'
+      large: 'w-6 h-6',
+      xlarge: 'w-8 h-8',
     };
     return `${iconSizeClasses[this.iconSize]} ${this.iconColor} flex-shrink-0`;
   }
