@@ -13,6 +13,6 @@ bootstrapApplication(AppComponent, {
     ...appConfig.providers,  // Ensure the providers from appConfig are included
     provideRouter(routes),  // Add any additional providers here
     provideHttpClient(),
-    provideClientHydration(withEventReplay()), provideAnimationsAsync()
+    provideClientHydration(withEventReplay()), provideAnimationsAsync(), provideAnimationsAsync()
   ]
 }).catch(err => console.error(err));
